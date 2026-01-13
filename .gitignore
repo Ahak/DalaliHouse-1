@@ -1,0 +1,1 @@
+"# Python  *.pyc  __pycache__/  *.pyo  *.pyd  # Virtual environment  venv/  env/ ENV/ # Django  *.sqlit db.sqlite3  /media/  *.log # OS files .DS_Store Thumbs.db # Environment variables  .env" 
