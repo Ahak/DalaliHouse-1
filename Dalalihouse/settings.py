@@ -21,14 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-rww2&=e7a=%8xo!f_f(f#g87ld&)u@e+4immu*nj0!!!l@lvfn')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '(jojwjg$2ch%r-@@)x_$um57vmclvn8bd%$e5zcs+0hd4uwn&j')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost,127.0.0.1,[::1]').split(',')
+ALLOWED_HOSTS = ['https://dalalihouse-1-6.onrender.com', 'localhost', '127.0.0.1']
 
-
+CRSF_TRUSTED_ORIGINS = ['https://dalalihouse-1-6.onrender.com']
 
 # Application definition
 
@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+SECURE_SSL_REDIRECT = False
 
 ROOT_URLCONF = 'Dalalihouse.urls'
 
