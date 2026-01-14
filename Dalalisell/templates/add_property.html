@@ -1,4 +1,5 @@
-{% extends "base.html" %} {% block content %} {% include "slidebar.html" %} {%if messages %} {% for message in messages %}
+{% extends "base.html" %} {% block content %} {% include "slidebar.html" %} {%if
+messages %} {% for message in messages %}
 <div
   class="alert alert-{{ message.tags }} alert-dismissible fade show"
   role="alert"
@@ -301,8 +302,7 @@
     </div>
   </div>
   <h2 class="mt-4">Property List</h2>
-  <a  href="{% url 'viewproperty' %}" class="btn btn-success mb-3"
-    >Refresh</a>
+  <a href="{% url 'view_property' %}" class="btn btn-success mb-3">Refresh</a>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -316,41 +316,41 @@
       </tr>
     </thead>
     <tbody>
-      {% for property in property %}
+      {% for prop in property %}
       <tr>
         <th scope="row">{{ forloop.counter }}</th>
         <th>
           <img
-            src="{{ property.image1.url }}"
-            alt="{{ property.title }}"
+            src="{{ prop.image1.url }}"
+            alt="{{ prop.title }}"
             width="100"
             height="75"
           />
         </th>
 
-        <td>{{ property.title }}</td>
-        <td>{{ property.price }}</td>
-        <td>{{ property.location }}</td>
-        <td>{{ property.status }}</td>
+        <td>{{ prop.title }}</td>
+        <td>{{ prop.price }}</td>
+        <td>{{ prop.location }}</td>
+        <td>{{ prop.status }}</td>
         <td>
           <button
             type="button"
             class="btn btn-sm btn-warning edit-btn"
             data-bs-toggle="modal"
             data-bs-target="#editModal"
-            data-id="{{ property.id }}"
-            data-title="{{ property.title }}"
-            data-description="{{ property.description }}"
-            data-price="{{ property.price }}"
-            data-location="{{ property.location }}"
-            data-room="{{ property.room }}"
-            data-bathroom="{{ property.bathroom }}"
+            data-id="{{ prop.id }}"
+            data-title="{{ prop.title }}"
+            data-description="{{ prop.description }}"
+            data-price="{{ prop.price }}"
+            data-location="{{ prop.location }}"
+            data-room="{{ prop.room }}"
+            data-bathroom="{{ prop.bathroom }}"
           >
             Edit
           </button>
           <form
             method="POST"
-            action="{% url 'delete-property' property.id %}"
+            action="{% url 'delete-property' prop.id %}"
             style="display: inline"
           >
             {% csrf_token %}
@@ -400,4 +400,4 @@
   });
 </script>
 
-{%endblock%}
+{% endblock %}
